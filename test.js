@@ -4,5 +4,5 @@ var player = require('./player');
 test('first test', function (t) {
     t.plan(1);
 
-    t.equal(1, player());
+    t.deepEqual([5, 5, 5], player([]));
 });
