@@ -1,0 +1,8 @@
+{
+  "name": "grid-wars-player",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "tape"
+  },
+  "license": "MIT"
+}
