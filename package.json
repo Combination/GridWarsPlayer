@@ -1,8 +1,16 @@
 {
   "name": "grid-wars-player",
   "version": "0.0.1",
+  "description": "Grid Wars Player",
   "scripts": {
     "test": "tape"
   },
-  "license": "MIT"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Combination/GridWarsPlayer.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "^2.12.0"
+  }
 }
