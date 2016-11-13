@@ -55,11 +55,11 @@ test('first test', function (t) {
 
     t.deepEqual([7, 7, 7, self], player(matrixRestBackFree));
 
-    var matrixSpy = [
+    var matrixBack = [
         enemy, enemy, enemy,
         enemy, 1,     enemy,
         enemy, enemy, enemy
     ];
 
-    t.deepEqual([2, 2, 2, enemy], player(matrixSpy));
+    t.deepEqual([8, 8, 8, self], player(matrixBack));
 });

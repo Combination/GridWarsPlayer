@@ -33,7 +33,7 @@ module.exports = function (matrix) {
     }
 
     if (enemyIndex.length === 8) {
-        return [2, 2, 2, matrix[2]];
+        return response(8);
     }
 
     if (enemyIndex.length === 0) {
