@@ -34,17 +34,17 @@ module.exports = function (matrix) {
 
     if (enemyIndex.length === 0) {
         if (freeIndex.length) {
-            var point = freeIndex[0];
-
-            return respose(point);
+            return respose(freeIndex[0]);
         }
 
-        var point = selfIndex[0];
-
-        return respose(point);
+        return respose(selfIndex[0]);
     }
 
-    var point = enemyIndex[0];
+    var attackPoint = 1;
 
-    return respose(point);
+    if (enemyIndex.indexOf(attackPoint) > -1) {
+        return respose(attackPoint);
+    }
+
+    return respose(enemyIndex[0]);
 };
