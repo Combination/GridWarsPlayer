@@ -13,7 +13,6 @@ module.exports = function (matrix) {
         6,      7,      8
     ];
 
-    var allFree = true;
     var freeIndex = [];
     var selfIndex = [];
     var enemyIndex = [];
@@ -22,20 +21,14 @@ module.exports = function (matrix) {
         if (matrix[point] === 0) {
             freeIndex.push(point);
         } else if (matrix[point] === self) {
-            allFree = false;
             selfIndex.push(point);
         } else {
             enemyIndex.push(point);
-            allFree = false;
         }
     }
 
-    if (allFree) {
-        return player.response(5);
-    }
-
     if (freeIndex.length === 8) {
-        return player.response(freeIndex[0]);
+        return player.response(5);
     }
 
     if (enemyIndex.length === 8) {
