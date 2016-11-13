@@ -32,6 +32,10 @@ module.exports = function (matrix) {
         return response(5);
     }
 
+    if (enemyIndex.length === 8) {
+        return [2, 2, 2, matrix[2]];
+    }
+
     if (enemyIndex.length === 0) {
         return freeIndex.length ? response(freeIndex[0]) : response(selfIndex[0]);
     }
