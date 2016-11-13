@@ -1,9 +1,11 @@
 module.exports = function (matrix) {
     var self = '11011011011111111111111111111111';
 
-    function response(point) {
-        return [point, point, point, self];
-    }
+    var player = {
+        response: function (point) {
+            return [point, point, point, self];
+        }
+    };
 
     var around = [
         0,      1,      2,
@@ -29,21 +31,21 @@ module.exports = function (matrix) {
     }
 
     if (allFree) {
-        return response(5);
+        return player.response(5);
     }
 
     if (enemyIndex.length === 8) {
-        return response(8);
+        return player.response(8);
     }
 
     if (enemyIndex.length === 0) {
-        return freeIndex.length ? response(freeIndex[0]) : response(selfIndex[0]);
+        return freeIndex.length ? player.response(freeIndex[0]) : player.response(selfIndex[0]);
     }
 
     var attackPoint = 1;
 
     if (enemyIndex.indexOf(attackPoint) > -1) {
-        return response(attackPoint);
+        return player.response(attackPoint);
     }
 
     var restEnemy = [];
@@ -55,12 +57,12 @@ module.exports = function (matrix) {
     }
 
     if (restEnemy.length) {
-        return response(restEnemy[0]);
+        return player.response(restEnemy[0]);
     }
 
     if (freeIndex.length) {
-        return response(freeIndex[0]);
+        return player.response(freeIndex[0]);
     }
 
-    return response(enemyIndex[0]);
+    return player.response(enemyIndex[0]);
 };
