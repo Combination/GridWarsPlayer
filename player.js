@@ -16,14 +16,14 @@ module.exports = function (matrix) {
     var selfIndex = [];
     var enemyIndex = [];
 
-    for (var index of around) {
-        if (matrix[index] === 0) {
-            freeIndex.push(index);
-        } else if (matrix[index] === self) {
+    for (var point of around) {
+        if (matrix[point] === 0) {
+            freeIndex.push(point);
+        } else if (matrix[point] === self) {
             allFree = false;
-            selfIndex.push(index);
+            selfIndex.push(point);
         } else {
-            enemyIndex.push(index);
+            enemyIndex.push(point);
             allFree = false;
         }
     }
@@ -44,6 +44,18 @@ module.exports = function (matrix) {
 
     if (enemyIndex.indexOf(attackPoint) > -1) {
         return respose(attackPoint);
+    }
+
+    var restEnemy = [];
+
+    for (var point of enemyIndex) {
+        if (selfIndex.indexOf(point) === -1) {
+            restEnemy.push(point);
+        }
+    }
+
+    if (restEnemy.length) {
+        return respose(restEnemy[0]);
     }
 
     return respose(enemyIndex[0]);
