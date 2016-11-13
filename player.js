@@ -1,7 +1,7 @@
 module.exports = function (matrix) {
     var self = '11011011011111111111111111111111';
 
-    function respose(point) {
+    function response(point) {
         return [point, point, point, self];
     }
 
@@ -33,13 +33,13 @@ module.exports = function (matrix) {
     }
 
     if (enemyIndex.length === 0) {
-        return freeIndex.length ? respose(freeIndex[0]) : respose(selfIndex[0]);
+        return freeIndex.length ? response(freeIndex[0]) : response(selfIndex[0]);
     }
 
     var attackPoint = 1;
 
     if (enemyIndex.indexOf(attackPoint) > -1) {
-        return respose(attackPoint);
+        return response(attackPoint);
     }
 
     var restEnemy = [];
@@ -51,12 +51,12 @@ module.exports = function (matrix) {
     }
 
     if (restEnemy.length) {
-        return respose(restEnemy[0]);
+        return response(restEnemy[0]);
     }
 
     if (freeIndex.length) {
-        return respose(freeIndex[0]);
+        return response(freeIndex[0]);
     }
 
-    return respose(enemyIndex[0]);
+    return response(enemyIndex[0]);
 };
