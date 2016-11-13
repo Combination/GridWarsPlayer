@@ -9,7 +9,7 @@ test('first test', function (t) {
 
     var matrixEmpty = [
         0, 0, 0,
-        0, 0, 0,
+        0, 1, 0,
         0, 0, 0
     ];
 
@@ -17,7 +17,7 @@ test('first test', function (t) {
 
     var matrixSelf = [
         self, self, self,
-        self, self, self,
+        self, 1,    self,
         self, self, self
     ];
 
@@ -25,7 +25,7 @@ test('first test', function (t) {
 
     var matrixEnemy = [
         0,  enemy,  0,
-        0,  0,      0,
+        0,  1,      0,
         0,  0,      0
     ];
 
@@ -33,7 +33,7 @@ test('first test', function (t) {
 
     var matrixEnemyRest = [
         self,   self,   enemy,
-        0,      0,      self,
+        0,      1,      self,
         0,      0,      0
     ];
 
