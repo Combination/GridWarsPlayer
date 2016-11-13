@@ -2,15 +2,32 @@ var test = require('tape');
 var player = require('./player');
 
 test('first test', function (t) {
-    t.plan(1);
+    t.plan(3);
 
-    var matrix = [
+    var self = '11011011011111111111111111111111';
+    var enemy = '00011111111111111111111111111000';
+
+    var matrixEmpty = [
         0, 0, 0,
         0, 0, 0,
         0, 0, 0
     ];
 
-    var self = '11011011011111111111111111111111';
+    t.deepEqual([5, 5, 5, self], player(matrixEmpty));
 
-    t.deepEqual([5, 5, 5, self], player(matrix));
+    var matrixSelf = [
+        self, self, self,
+        self, self, self,
+        self, self, self
+    ];
+
+    t.deepEqual([0, 0, 0, self], player(matrixSelf));
+
+    var matrixEnemy = [
+        0, 0, 0,
+        0, 0, 0,
+        0, 0, enemy
+    ];
+
+    t.deepEqual([8, 8, 8, self], player(matrixEnemy));
 });

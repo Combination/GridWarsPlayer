@@ -16,6 +16,7 @@ module.exports = function (matrix) {
         if (matrix[index] === 0) {
             freeIndex.push(index);
         } else if (matrix[index] === self) {
+            allFree = false;
             selfIndex.push(index);
         } else {
             enemyIndex.push(index);
@@ -34,12 +35,12 @@ module.exports = function (matrix) {
             return [point, point, point, self];
         }
 
-        var point = selfIndex[Date.now() % selfIndex.length + 1];
+        var point = selfIndex[0];
 
         return [point, point, point, self];
     }
 
-    var point = enemyIndex[Date.now() % enemyIndex.length + 1];
+    var point = enemyIndex[0];
 
     return [point, point, point, self];
 };
