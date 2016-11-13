@@ -34,6 +34,10 @@ module.exports = function (matrix) {
         return player.response(5);
     }
 
+    if (freeIndex.length === 8) {
+        return player.response(freeIndex[0]);
+    }
+
     if (enemyIndex.length === 8) {
         return player.response(8);
     }

@@ -2,7 +2,7 @@ var test = require('tape');
 var player = require('./player');
 
 test('first test', function (t) {
-    t.plan(7);
+    t.plan(8);
 
     var self = '11011011011111111111111111111111';
     var enemy = '00011111111111111111111111111000';
@@ -14,6 +14,14 @@ test('first test', function (t) {
     ];
 
     t.deepEqual([5, 5, 5, self], player(matrixEmpty));
+
+    var matrixTrinity = [
+        self,   0,      0,
+        0,      1,      self,
+        0,      self,   0
+    ];
+
+    t.deepEqual([2, 2, 2, self], player(matrixEmpty));
 
     var matrixSelf = [
         self, self, self,
