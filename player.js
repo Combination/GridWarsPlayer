@@ -52,10 +52,7 @@ module.exports = function (matrix) {
             return player.response(restFree[0]);
         }
 
-        /**
-         * TODO: cover it
-         */
-        return player.response(freeIndex[0]);
+        return player.response(selfIndex[0]);
     }
 
     var attackPoint = 1;
