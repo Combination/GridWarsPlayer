@@ -21,7 +21,7 @@ test('first test', function (t) {
         0,      self,   0
     ];
 
-    t.deepEqual([2, 2, 2, self], player(matrixEmpty));
+    t.deepEqual([2, 2, 2, self], player(matrixTrinity));
 
     var matrixSelf = [
         self, self, self,

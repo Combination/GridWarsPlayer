@@ -42,8 +42,24 @@ module.exports = function (matrix) {
         return player.response(8);
     }
 
+    if (selfIndex.length === 8) {
+        return player.response(0);
+    }
+
     if (enemyIndex.length === 0) {
-        return freeIndex.length ? player.response(freeIndex[0]) : player.response(selfIndex[0]);
+        var restFree = [];
+
+        for (var point of freeIndex) {
+            if (selfIndex.indexOf(point + 4) === -1) {
+                restFree.push(point);
+            }
+        }
+
+        if (restFree.length) {
+            return player.response(restFree[0]);
+        }
+
+        return freeIndex[0];
     }
 
     var attackPoint = 1;
