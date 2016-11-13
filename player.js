@@ -42,9 +42,9 @@ module.exports = function (matrix) {
     if (enemyIndex.length === 0) {
         var restFree = [];
 
-        for (var point of freeIndex) {
-            if (selfIndex.indexOf(point + 4) === -1) {
-                restFree.push(point);
+        for (var freePoint of freeIndex) {
+            if (selfIndex.indexOf(freePoint + 4) === -1) {
+                restFree.push(freePoint);
             }
         }
 
@@ -63,9 +63,9 @@ module.exports = function (matrix) {
 
     var restEnemy = [];
 
-    for (var point of enemyIndex) {
-        if (selfIndex.indexOf(point + 3) === -1) {
-            restEnemy.push(point);
+    for (var enemyPoint of enemyIndex) {
+        if (selfIndex.indexOf(enemyPoint + 3) === -1) {
+            restEnemy.push(enemyPoint);
         }
     }
 
