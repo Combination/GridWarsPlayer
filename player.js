@@ -33,11 +33,7 @@ module.exports = function (matrix) {
     }
 
     if (enemyIndex.length === 0) {
-        if (freeIndex.length) {
-            return respose(freeIndex[0]);
-        }
-
-        return respose(selfIndex[0]);
+        return freeIndex.length ? respose(freeIndex[0]) : respose(selfIndex[0]);
     }
 
     var attackPoint = 1;
@@ -49,13 +45,17 @@ module.exports = function (matrix) {
     var restEnemy = [];
 
     for (var point of enemyIndex) {
-        if (selfIndex.indexOf(point) === -1) {
+        if (selfIndex.indexOf(point + 3) === -1) {
             restEnemy.push(point);
         }
     }
 
     if (restEnemy.length) {
         return respose(restEnemy[0]);
+    }
+
+    if (freeIndex.length) {
+        return respose(freeIndex[0]);
     }
 
     return respose(enemyIndex[0]);
