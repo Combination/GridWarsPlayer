@@ -29,7 +29,7 @@ module.exports = function (matrix) {
     }
 
     if (allFree) {
-        return [5, 5, 5, self];
+        return response(5);
     }
 
     if (enemyIndex.length === 0) {
