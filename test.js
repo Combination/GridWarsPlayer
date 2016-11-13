@@ -24,10 +24,10 @@ test('first test', function (t) {
     t.deepEqual([0, 0, 0, self], player(matrixSelf));
 
     var matrixEnemy = [
-        0, 0, 0,
-        0, 0, 0,
-        0, 0, enemy
+        0,  enemy,  0,
+        0,  0,      0,
+        0,  0,      0
     ];
 
-    t.deepEqual([8, 8, 8, self], player(matrixEnemy));
+    t.deepEqual([1, 1, 1, self], player(matrixEnemy));
 });

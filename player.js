@@ -1,6 +1,10 @@
 module.exports = function (matrix) {
     var self = '11011011011111111111111111111111';
 
+    function respose(point) {
+        return [point, point, point, self];
+    }
+
     var around = [
         0,      1,      2,
         3,   /* i */    5,
@@ -32,15 +36,15 @@ module.exports = function (matrix) {
         if (freeIndex.length) {
             var point = freeIndex[0];
 
-            return [point, point, point, self];
+            return respose(point);
         }
 
         var point = selfIndex[0];
 
-        return [point, point, point, self];
+        return respose(point);
     }
 
     var point = enemyIndex[0];
 
-    return [point, point, point, self];
+    return respose(point);
 };
