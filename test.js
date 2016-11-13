@@ -54,4 +54,12 @@ test('first test', function (t) {
     ];
 
     t.deepEqual([7, 7, 7, self], player(matrixRestBackFree));
+
+    var matrixSpy = [
+        self, self, enemy,
+        self, 1,    self,
+        self, self, self
+    ];
+
+    t.deepEqual([2, 2, 2, enemy], player(matrixSpy));
 });
