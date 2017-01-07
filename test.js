@@ -4,20 +4,21 @@ var player = require('./player');
 test('first test', function (t) {
     t.plan(9);
 
+    var init = '00000000000000000000000000000000';
     var self = '11011011011111111111111111111111';
     var enemy = '00011111111111111111111111111000';
 
     var matrixEmpty = [
-        0, 0, 0,
-        0, 1, 0,
-        0, 0, 0
+        0,      0,      0,
+        0,      init,   0,
+        0,      0,      0
     ];
 
     t.deepEqual([5, 5, 5, self], player(matrixEmpty));
 
     var matrixTrinity = [
         self,   0,      0,
-        0,      1,      self,
+        0,      init,   self,
         0,      self,   0
     ];
 
@@ -25,7 +26,7 @@ test('first test', function (t) {
 
     var matrixSelf = [
         self, self, self,
-        self, 1,    self,
+        self, init, self,
         self, self, self
     ];
 
@@ -33,7 +34,7 @@ test('first test', function (t) {
 
     var matrixEnemy = [
         0,  enemy,  0,
-        0,  1,      0,
+        0,  init,   0,
         0,  0,      0
     ];
 
@@ -41,7 +42,7 @@ test('first test', function (t) {
 
     var matrixRestLeftFree = [
         self,   self,   enemy,
-        0,      1,      self,
+        0,      init,   self,
         0,      0,      0
     ];
 
@@ -49,7 +50,7 @@ test('first test', function (t) {
 
     var matrixRestSelf = [
         self, 0,    self,
-        0,    1,    self,
+        0,    init, self,
         self, self, self
     ];
 
@@ -57,7 +58,7 @@ test('first test', function (t) {
 
     var matrixRestLeftEnemy = [
         self,   self,   enemy,
-        enemy,  1,      self,
+        enemy,  self,   self,
         0,      0,      0
     ];
 
@@ -65,7 +66,7 @@ test('first test', function (t) {
 
     var matrixRestBackFree = [
         self,   self,   enemy,
-        enemy,  1,      self,
+        enemy,  self,   self,
         self,   0,      0
     ];
 
@@ -73,7 +74,7 @@ test('first test', function (t) {
 
     var matrixBack = [
         enemy, enemy, enemy,
-        enemy, 1,     enemy,
+        enemy, self,  enemy,
         enemy, enemy, enemy
     ];
 
